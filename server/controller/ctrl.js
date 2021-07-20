@@ -33,7 +33,11 @@ module.exports = {
       price,
       imageURL,
     };
-    console.log("in createHouse");
+
+    if (price > 1000000) {
+      rollbar.error("waste of money - don't even bother");
+    }
+    //console.log("in createHouse");
     houses.push(newHouse);
 
     rollbar.info("house added.");

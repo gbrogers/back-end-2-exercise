@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-app.use(express.status("public"));
+app.use(express.static("public"));
 const path = require("path");
 
 const app = express();

@@ -1,4 +1,4 @@
-const Rollbar = require("rollbar");
+//const Rollbar = require("rollbar");
 const houses = require("../db.json");
 
 let houseID = 4;
@@ -15,8 +15,8 @@ module.exports = {
       rollbar.error("that id does not exist");
       res.status(400).send({ error: "id was not found" });
     } else {
-      houses.splice(index, 1);
       rollbar.info("nice! lets delete that house id");
+      houses.splice(index, 1);
       res.status(200).send(houses);
     }
   },

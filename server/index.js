@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 var Rollbar = require("rollbar");
+const ctrl = require("./controller/ctrl");
 var rollbar = new Rollbar({
   accessToken: "1c945783b77447a5808a359cafda0954",
   captureUncaught: true,
@@ -27,16 +28,12 @@ app.get("/", (req, res) => {
   // rollbar.info("html file served successfully");
 });
 
-app.get("/hello", () => {
-  rollbar.info("this went as planned");
-});
-
 const port = process.env.PORT || 4004;
 
 //endpoints
 app.get("/api/houses", controller.getHouses);
 app.delete("/api/houses/:id", controller.deleteHouse);
-app.post("/api/houses", controller.createHouse);
+app.post("/api/houses", ctrl.createHouse);
 app.put("/api/houses/:id", controller.updateHouse);
 
 app.listen(port, () => {

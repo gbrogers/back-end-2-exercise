@@ -1,17 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 
+const app = express();
+
 app.use(express.static("public"));
 const path = require("path");
 
-const app = express();
 const controller = require("./controller/ctrl");
 
 app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+  res.sendFile(path.join(__dirname, "../public/index.html"));
   // // send rollbar some info // happens everytime project is loaded
   // rollbar.info("html file served successfully");
 });

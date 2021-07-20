@@ -27,6 +27,10 @@ app.get("/", (req, res) => {
   // rollbar.info("html file served successfully");
 });
 
+app.get("/hello", () => {
+  rollbar.info("this went as planned");
+});
+
 const port = process.env.PORT || 4004;
 
 //endpoints

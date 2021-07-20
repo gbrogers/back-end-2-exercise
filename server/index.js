@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 
+app.use(express.status("public"));
+const path = require("path");
+
 const app = express();
 const controller = require("./controller/ctrl");
 

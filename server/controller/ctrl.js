@@ -33,7 +33,7 @@ module.exports = {
       price,
       imageURL,
     };
-
+    console.log("in createHouse");
     houses.push(newHouse);
     res.status(200).send(houses);
 

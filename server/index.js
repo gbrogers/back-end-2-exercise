@@ -7,7 +7,13 @@ const controller = require("./controller/ctrl");
 app.use(express.json());
 app.use(cors());
 
-const port = 4004;
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
+  // // send rollbar some info // happens everytime project is loaded
+  // rollbar.info("html file served successfully");
+});
+
+const port = process.env.PORT || 4004;
 
 //endpoints
 app.get("/api/houses", controller.getHouses);

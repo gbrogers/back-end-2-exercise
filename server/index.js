@@ -15,11 +15,11 @@ const ctrl = require("./controller/ctrl");
 
 var Rollbar = require("rollbar");
 
-// var rollbar = new Rollbar({
-//   accessToken: "1c945783b77447a5808a359cafda0954",
-//   captureUncaught: true,
-//   captureUnhandledRejections: true,
-// });
+var rollbar = new Rollbar({
+  accessToken: "1c945783b77447a5808a359cafda0954",
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
 
 // record a generic message and send it to Rollbar
 rollbar.log("Hello world!");

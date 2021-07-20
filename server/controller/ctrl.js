@@ -35,9 +35,8 @@ module.exports = {
     };
     console.log("in createHouse");
     houses.push(newHouse);
-    res.status(200).send(houses);
-
     rollbar.info("house added.");
+    res.status(200).send(houses);
 
     houseID++;
   },

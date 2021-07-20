@@ -1,4 +1,5 @@
 const houses = require("../db.json");
+const Rollbar = require("rollbar");
 const rollbar = new Rollbar({
   accessToken: "1c945783b77447a5808a359cafda0954",
   captureUncaught: true,

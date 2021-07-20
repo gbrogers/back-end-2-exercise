@@ -37,7 +37,7 @@ module.exports = {
     if (price > 1000000) {
       rollbar.error("waste of money - don't even bother");
     }
-    //console.log("in createHouse");
+    console.log("in createHouse");
     houses.push(newHouse);
 
     rollbar.info("house added.");

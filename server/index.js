@@ -1,17 +1,15 @@
 const express = require("express");
 const cors = require("cors");
+// const ctrl = require("./controller/ctrl");
+const controller = require("./controller/ctrl");
 
 const app = express();
 
 app.use(express.static("public"));
 const path = require("path");
 
-const controller = require("./controller/ctrl");
-
 app.use(express.json());
 app.use(cors());
-
-const ctrl = require("./controller/ctrl");
 
 var Rollbar = require("rollbar");
 
@@ -25,9 +23,7 @@ var rollbar = new Rollbar({
 rollbar.log("Hello world!");
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
-  // // send rollbar some info // happens everytime project is loaded
-  // rollbar.info("html file served successfully");
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 const port = process.env.PORT || 4004;

@@ -1,10 +1,9 @@
-// const rollbar = new Rollbar({
-//   accessToken: "1c945783b77447a5808a359cafda0954",
-//   captureUncaught: true,
-//   captureUnhandledRejections: true,
-// });
-
 const houses = require("../db.json");
+const rollbar = new Rollbar({
+  accessToken: "1c945783b77447a5808a359cafda0954",
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
 
 let houseID = 4;
 

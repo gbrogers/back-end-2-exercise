@@ -1,4 +1,8 @@
-//const Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+  accessToken: "1c945783b77447a5808a359cafda0954",
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
 const houses = require("../db.json");
 
 let houseID = 4;
@@ -12,10 +16,10 @@ module.exports = {
       return house.id === +req.params.id;
     });
     if (index === -1) {
-      rollbar.error("that id does not exist");
+      // rollbar.error("that id does not exist");
       res.status(400).send({ error: "id was not found" });
     } else {
-      rollbar.info("nice! lets delete that house id");
+      // rollbar.info("nice! lets delete that house id");
       houses.splice(index, 1);
       res.status(200).send(houses);
     }
@@ -31,6 +35,7 @@ module.exports = {
 
     houses.push(newHouse);
     res.status(200).send(houses);
+    rollbar.into("house added.");
     houseID++;
   },
   updateHouse: (req, res) => {

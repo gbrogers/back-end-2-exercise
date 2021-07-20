@@ -11,6 +11,16 @@ const controller = require("./controller/ctrl");
 app.use(express.json());
 app.use(cors());
 
+var Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+  accessToken: "1c945783b77447a5808a359cafda0954",
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
+
+// record a generic message and send it to Rollbar
+rollbar.log("Hello world!");
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
   // // send rollbar some info // happens everytime project is loaded

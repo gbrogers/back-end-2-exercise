@@ -17,10 +17,10 @@ module.exports = {
       return house.id === +req.params.id;
     });
     if (index === -1) {
-      // rollbar.error("that id does not exist");
+      rollbar.error("that id does not exist");
       res.status(400).send({ error: "id was not found" });
     } else {
-      // rollbar.info("nice! lets delete that house id");
+      rollbar.info("nice! lets delete that house id");
       houses.splice(index, 1);
       res.status(200).send(houses);
     }
@@ -35,6 +35,7 @@ module.exports = {
     };
     console.log("in createHouse");
     houses.push(newHouse);
+
     rollbar.info("house added.");
     res.status(200).send(houses);
 

@@ -33,7 +33,7 @@ const port = process.env.PORT || 4004;
 //endpoints
 app.get("/api/houses", controller.getHouses);
 app.delete("/api/houses/:id", controller.deleteHouse);
-app.post("/api/houses", hello.createHouse);
+app.post("/api/houses", controller.createHouse);
 app.put("/api/houses/:id", controller.updateHouse);
 
 app.listen(port, () => {

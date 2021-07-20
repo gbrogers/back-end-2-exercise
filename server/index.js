@@ -11,13 +11,15 @@ const controller = require("./controller/ctrl");
 app.use(express.json());
 app.use(cors());
 
-var Rollbar = require("rollbar");
 const ctrl = require("./controller/ctrl");
-var rollbar = new Rollbar({
-  accessToken: "1c945783b77447a5808a359cafda0954",
-  captureUncaught: true,
-  captureUnhandledRejections: true,
-});
+
+var Rollbar = require("rollbar");
+
+// var rollbar = new Rollbar({
+//   accessToken: "1c945783b77447a5808a359cafda0954",
+//   captureUncaught: true,
+//   captureUnhandledRejections: true,
+// });
 
 // record a generic message and send it to Rollbar
 rollbar.log("Hello world!");

@@ -1,8 +1,9 @@
-var rollbar = new Rollbar({
+const rollbar = new Rollbar({
   accessToken: "1c945783b77447a5808a359cafda0954",
   captureUncaught: true,
   captureUnhandledRejections: true,
 });
+
 const houses = require("../db.json");
 
 let houseID = 4;
@@ -35,7 +36,9 @@ module.exports = {
 
     houses.push(newHouse);
     res.status(200).send(houses);
+
     rollbar.info("house added.");
+
     houseID++;
   },
   updateHouse: (req, res) => {
